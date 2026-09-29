@@ -1,0 +1,5 @@
+OISD 105 Clause 7.2 Ventilation
+Confined-space activity shall be stopped when forced ventilation is unavailable or measured ventilation falls below the safe operating limit. Workers shall be removed until ventilation is restored.
+
+OISD 105 Clause 9.4 Gas Monitoring
+Gas concentration trends shall be monitored continuously during maintenance work. Rising gas readings near workers require immediate supervisory review.

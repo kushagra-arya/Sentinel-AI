@@ -1,0 +1,79 @@
+{
+  "window_minutes": 15,
+  "rules": [
+    {
+      "id": "gas_increasing_maintenance_workers",
+      "name": "Gas Increasing with Maintenance and Workers Nearby",
+      "description": "Gas trend is rising while maintenance is active and workers are present in the same zone.",
+      "risk_level": "high",
+      "title": "High compound gas risk",
+      "message": "Gas concentration is increasing while maintenance is active and workers are nearby.",
+      "conditions": [
+        {
+          "type": "sensor_trend",
+          "sensor_type": "gas",
+          "direction": "increasing",
+          "min_delta": 5.0,
+          "window_minutes": 15
+        },
+        {
+          "type": "maintenance_active",
+          "same_zone_as": "sensor_trend"
+        },
+        {
+          "type": "workers_nearby",
+          "same_zone_as": "sensor_trend",
+          "window_minutes": 15,
+          "minimum_count": 1
+        }
+      ]
+    },
+    {
+      "id": "confined_space_ventilation_failure",
+      "name": "Confined Space Entry with Ventilation Failure",
+      "description": "A confined-space permit is active while ventilation telemetry indicates failure.",
+      "risk_level": "critical",
+      "title": "Critical confined-space ventilation risk",
+      "message": "Confined-space work is active while ventilation is below the safe operating threshold.",
+      "conditions": [
+        {
+          "type": "active_permit",
+          "permit_type": "confined_space"
+        },
+        {
+          "type": "sensor_threshold",
+          "sensor_type": "ventilation",
+          "operator": "lte",
+          "threshold": 30.0,
+          "same_zone_as": "active_permit",
+          "window_minutes": 15
+        }
+      ]
+    },
+    {
+      "id": "high_temperature_pressure_increase",
+      "name": "High Temperature with Pressure Increase",
+      "description": "Temperature is above threshold while pressure is rising in the same zone.",
+      "risk_level": "high",
+      "title": "Equipment failure risk",
+      "message": "High temperature and rising pressure indicate equipment failure risk.",
+      "conditions": [
+        {
+          "type": "sensor_threshold",
+          "sensor_type": "temperature",
+          "operator": "gte",
+          "threshold": 75.0,
+          "window_minutes": 15
+        },
+        {
+          "type": "sensor_trend",
+          "sensor_type": "pressure",
+          "direction": "increasing",
+          "min_delta": 8.0,
+          "same_zone_as": "sensor_threshold",
+          "window_minutes": 15
+        }
+      ]
+    }
+  ]
+}

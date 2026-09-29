@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 96%;
+    --card: 222 36% 8%;
+    --card-foreground: 210 40% 96%;
+    --border: 217 19% 21%;
+    --input: 217 19% 21%;
+    --ring: 203 89% 53%;
+    --primary: 203 89% 53%;
+    --primary-foreground: 222 47% 5%;
+    --safe: 151 71% 45%;
+    --warning: 38 92% 50%;
+    --critical: 0 84% 60%;
+    --informational: 203 89% 53%;
+    --muted-foreground: 215 20% 65%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(32, 201, 151, 0.12), transparent 30%),
+      radial-gradient(circle at 85% 15%, rgba(56, 189, 248, 0.11), transparent 24%),
+      linear-gradient(180deg, rgba(8, 12, 20, 0.94), rgba(8, 12, 20, 1));
+  }
+
+  .leaflet-container {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .leaflet-control-zoom a,
+  .leaflet-popup-content-wrapper,
+  .leaflet-popup-tip {
+    background: hsl(var(--card));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+  }
+}

@@ -1,0 +1,5 @@
+Section 41B Hazardous Processes
+Every occupier handling hazardous processes shall maintain accurate safety information and disclose hazards to workers. Emergency procedures must be documented and made available before work begins.
+
+Section 36 Confined Spaces
+No worker shall enter a confined space until the atmosphere is tested, ventilation is verified, and a competent person authorizes entry.
